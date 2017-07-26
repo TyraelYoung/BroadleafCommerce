@@ -482,7 +482,7 @@ select:not(#sandboxes) {
 /****************************************
  ADMIN SPECIFIC FIELD STYLES
 ****************************************/
-input.color-picker-value {
+input.color-picker {
     margin-top: 2px;
     width: 10%;
 }
