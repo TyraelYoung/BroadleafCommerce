@@ -483,7 +483,8 @@ select:not(#sandboxes) {
  ADMIN SPECIFIC FIELD STYLES
 ****************************************/
 input.color-picker-value {
-    width: 16.66667%;
+    margin-top: 2px;
+    width: 10%;
 }
 .changes.numeric-field {
     min-width: 200px;
