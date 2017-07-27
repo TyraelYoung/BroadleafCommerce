@@ -640,6 +640,18 @@ var BLCAdmin = (function($) {
 
             $container.find('textarea.autosize').autosize();
         },
+        initializeColorPickerFields : function($container) {
+            $container.find(".color-picker").spectrum({
+                showButtons: false,
+                preferredFormat: "hex6",
+                change: function(color) {
+                    $(this).closest('.field-group').find('input.color-picker-value').val(color).trigger('input');
+                },
+                move: function(color) {
+                    $(this).closest('.field-group').find('input.color-picker-value').val(color).trigger('input');
+                }
+            });
+        },
 
         initializeSelectizeFields : function($container) {
             var excludedSelectors = '';
@@ -1384,6 +1396,11 @@ $('body').on('click', '.disabled', function(e) {
     return false;
 });
         
+$('body').on('change', 'input.color-picker-value', function() {
+    var $this = $(this);
+    $this.closest('.field-group').find('input.color-picker').spectrum('set', $this.val());
+});
+
 $('body').on('click', 'button.page-reset', function() {
 	var currentUrl = '//' + location.host + location.pathname;
 	window.location = currentUrl;

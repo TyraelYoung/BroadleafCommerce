@@ -210,6 +210,13 @@
                     $matchValue.val(origVal);
                     continue;
                 }
+                // If this is a color picker, we need to set the color picker widget
+                else if ($(el).hasClass('color-picker-value')) {
+                    $(el).val(origVal).trigger('blur');
+                    
+                    $(el).closest('.field-group').find('input.color-picker').spectrum('set', origVal);
+                    continue;
+                }
                 else if ($(el).hasClass('ace-editor-content')) {
                     BLCAdmin.ace.revertRegisteredEditors();
                 }
